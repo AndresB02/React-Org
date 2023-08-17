@@ -6,15 +6,12 @@ const MiOrg = (props) => {
   // hooks -> useState
   // y de esta manera  usarlo como funcion -> useState()
   // estructura del useState es = const [nombreVariable, funcionQueActualiza] = useState(valorInicial)
-
-  const [mostrar, actualizarMostrar] = useState(true);
+  console.log(props);
+  //const [mostrar, actualizarMostrar] = useState();
   // const manejarClick = () => {
   //   console.log("mostrar/ocultar elemento", !mostrar);
   //   actualizarMostrar(!mostrar);
   // };
-  console.log(mostrar);
-  console.log(actualizarMostrar);
-
   return (
     <section className="orgSection">
       <h3 className="title">Mi organización</h3>

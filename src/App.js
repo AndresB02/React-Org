@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import MiOrg from "./components/MiOrg/MiOrg";
 import Formulario from "./components/formulario/Formulario";
 import Equipo from "./components/Equipo/Equipo";
+import Footer from "./components/Footer/Footer";
 
 //en la linea 9 al poner la funcion header en {}
 // se da a entender que es un elemento de JS
@@ -12,21 +13,9 @@ import Equipo from "./components/Equipo/Equipo";
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(true);
   const [colaboradores, actualizarColaboradores] = useState([]);
-  //Ternario  --> condicion ? seMuestra caso contrario : noSeMuestra
-  const cambiarMostrar = () => {
-    actualizarMostrar(!mostrarFormulario);
-  };
-
-  //Registrar colaborador
-  const registrarColaborador = (colaborador) => {
-    console.log("Nuevo colaborador", colaborador);
-    // spread operator - copia de valores actuales y se le agrega el colaborador
-    //los 3p puntos hacen referencia a que esta copiando un elemento
-    actualizarColaboradores([...colaboradores, colaborador]);
-  };
 
   //Lista de equpos
-  const equipos = [
+  const [equipos, actualizarEquipos] = useState([
     //abrimos un objeto para lograr llamar colores y demas
     //desde react
     {
@@ -64,7 +53,38 @@ function App() {
       colorPrimario: "#ff8a29",
       colorSecundario: "#ffeedf",
     },
-  ];
+  ]);
+  //Ternario  --> condicion ? seMuestra caso contrario : noSeMuestra
+  const cambiarMostrar = () => {
+    actualizarMostrar(!mostrarFormulario);
+  };
+
+  //Registrar colaborador
+  const registrarColaborador = (colaborador) => {
+    console.log("Nuevo colaborador", colaborador);
+    // spread operator - copia de valores actuales y se le agrega el colaborador
+    //los 3p puntos hacen referencia a que esta copiando un elemento
+    actualizarColaboradores([...colaboradores, colaborador]);
+  };
+
+  //Eliminar colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar colaborador");
+  };
+
+  //Actualizar color de equipo
+  const actualizarColor = (color, titulo) => {
+    console.log("Actualizar: ", color, titulo);
+    const equiposActualizados = equipos.map((equipo) => {
+      if (equipo.titulo === titulo) {
+        equipo.colorPrimario = color;
+      }
+
+      return equipo;
+    });
+
+    actualizarEquipos(equiposActualizados);
+  };
 
   return (
     <div>
@@ -76,9 +96,7 @@ function App() {
           registrarColaborador={registrarColaborador}
         />
       )}
-
       <MiOrg cambiarMostrar={cambiarMostrar} />
-
       {/* se usa el .map para recorrer una lista
       pero siempre que se trabaja con map, debe traer una key*/}
       {equipos.map((equipo) => (
@@ -88,8 +106,11 @@ function App() {
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.equipo === equipo.titulo
           )}
+          eliminarColaborador={eliminarColaborador}
+          actualizarColor={actualizarColor}
         />
       ))}
+      <Footer />
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import "./Equipo.css";
 import Colaborador from "../Colaborador/Colaborador";
+//import hexToRgba from "he
 //ahora aca en equipo es el que estara recinbiendo los datos
 const Equipo = (props) => {
   //Destructuracion
   const { colorPrimario, colorSecundario, titulo } = props.datos;
-  const { colaboradores } = props;
+  const { colaboradores, eliminarColaborador, actualizarColor } = props;
   const obj = {
     backgroundColor: colorSecundario,
   };
@@ -13,7 +14,7 @@ const Equipo = (props) => {
 
   return (
     <>
-      {
+      {colaboradores.length > 0 && (
         <section className="equipo" style={obj}>
           <h3 style={estiloTitulo}>{titulo}</h3>
           <div className="colaboradores">
@@ -26,7 +27,7 @@ const Equipo = (props) => {
             ))}
           </div>
         </section>
-      }
+      )}
     </>
   );
 };

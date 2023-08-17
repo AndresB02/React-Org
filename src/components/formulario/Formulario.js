@@ -16,7 +16,6 @@ const Formulario = (props) => {
   const manejarEnvio = (e) => {
     e.preventDefault();
     console.log("Manejar envio");
-
     let datoAEnviar = {
       nombre,
       puesto,
