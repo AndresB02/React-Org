@@ -8,7 +8,10 @@ const Formulario = (props) => {
   const [nombre, actualizarNombre] = useState("");
   const [puesto, actualizarPuesto] = useState("");
   const [foto, actualizarFoto] = useState("");
-  const [eqiupo, actualizarEquipo] = useState("");
+  const [equipo, actualizarEquipo] = useState("");
+
+  const { registrarColaborador } = props;
+
   //la propiedad "evento" se puede simplificar solamente con la letra "e"
   const manejarEnvio = (e) => {
     e.preventDefault();
@@ -18,8 +21,9 @@ const Formulario = (props) => {
       nombre,
       puesto,
       foto,
+      equipo,
     };
-    console.log(datoAEnviar);
+    registrarColaborador(datoAEnviar);
   };
 
   return (
@@ -48,7 +52,7 @@ const Formulario = (props) => {
           actualizarValor={actualizarFoto}
         />
         <ListaOpciones
-          valor={eqiupo}
+          valor={equipo}
           actualizarEquipo={actualizarEquipo}
           equipos={props.equipos}
         />
