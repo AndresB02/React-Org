@@ -11,8 +11,39 @@ import Footer from "./components/Footer/Footer";
 // pero se puede dejar como <Header/> y asi se llaman los
 //elementos de js a react
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(true);
-  const [colaboradores, actualizarColaboradores] = useState([]);
+  const [mostrarFormulario, actualizarMostrar] = useState(false);
+  const [colaboradores, actualizarColaboradores] = useState([
+    {
+      equipo: "Front End",
+      foto: "https://github.com/harlandlohora.png",
+      nombre: "Harland Lohora",
+      puesto: "Instructor",
+    },
+    {
+      equipo: "Programación",
+      foto: "https://github.com/genesysrm.png",
+      nombre: "Génesys Rondón",
+      puesto: "Desarroladora de software e Instructor",
+    },
+    {
+      equipo: "UX y Diseño",
+      foto: "https://github.com/JeanmarieAluraLatam.png",
+      nombre: "Jeanmarie Quijada",
+      puesto: "Instructora en Alura Latam",
+    },
+    {
+      equipo: "Programación",
+      foto: "https://github.com/christianpva.png",
+      nombre: "Christian Velasco",
+      puesto: "Head de Alura e Instructor",
+    },
+    {
+      equipo: "Innovación y Gestión",
+      foto: "https://github.com/JoseDarioGonzalezCha.png",
+      nombre: "Jose Gonzalez",
+      puesto: "Dev FullStack",
+    },
+  ]);
 
   //Lista de equpos
   const [equipos, actualizarEquipos] = useState([
@@ -24,7 +55,7 @@ function App() {
       colorSecundario: "#D9f7e9",
     },
     {
-      titulo: "Front end",
+      titulo: "Front End",
       colorPrimario: "#82cffa",
       colorSecundario: "#e8f8ff",
     },
