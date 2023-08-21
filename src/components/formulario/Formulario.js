@@ -10,7 +10,10 @@ const Formulario = (props) => {
   const [foto, actualizarFoto] = useState("");
   const [equipo, actualizarEquipo] = useState("");
 
-  const { registrarColaborador } = props;
+  const [titulo, actualizarTitulo] = useState("");
+  const [color, actualizarColor] = useState("");
+
+  const { registrarColaborador, crearEquipo } = props;
 
   //la propiedad "evento" se puede simplificar solamente con la letra "e"
   const manejarEnvio = (e) => {
@@ -23,6 +26,11 @@ const Formulario = (props) => {
       equipo,
     };
     registrarColaborador(datoAEnviar);
+  };
+
+  const manejarNuevoEquipo = (e) => {
+    e.preventDefault();
+    crearEquipo({ titulo, colorPrimario: color });
   };
 
   return (
@@ -56,6 +64,24 @@ const Formulario = (props) => {
           equipos={props.equipos}
         />
         <Boton>Crear</Boton>
+      </form>
+      <form onSubmit={manejarNuevoEquipo}>
+        <h2>Rellena el formulario con los datos del nuevo equipo</h2>
+        <CampoTexto
+          titulo="Titulo"
+          placeholder="Ingrese titulo"
+          required
+          valor={titulo}
+          actualizarValor={actualizarTitulo}
+        />
+        <CampoTexto
+          titulo="Color"
+          placeholder="Ingrese el color"
+          required
+          valor={color}
+          actualizarValor={actualizarColor}
+        />
+        <Boton>Registrar</Boton>
       </form>
     </section>
   );

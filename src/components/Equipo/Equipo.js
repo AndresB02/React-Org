@@ -6,6 +6,7 @@ import hexToRgba from "hex-to-rgba";
 const Equipo = (props) => {
   //Destructuracion
   const { colorPrimario, colorSecundario, titulo, id } = props.datos;
+  console.log(colorSecundario);
   const { colaboradores, eliminarColaborador, actualizarColor } = props;
   const obj = {
     backgroundColor: hexToRgba(colorPrimario, 0.3),

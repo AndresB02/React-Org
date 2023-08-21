@@ -12,7 +12,7 @@ import Footer from "./components/Footer/Footer";
 // pero se puede dejar como <Header/> y asi se llaman los
 //elementos de js a react
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(false);
+  const [mostrarFormulario, actualizarMostrar] = useState(true);
   const [colaboradores, actualizarColaboradores] = useState([
     {
       id: uuid(),
@@ -112,8 +112,12 @@ function App() {
   };
 
   //Eliminar colaborador
-  const eliminarColaborador = () => {
-    console.log("Eliminar colaborador");
+  const eliminarColaborador = (id) => {
+    console.log("Eliminar colaborador", id);
+    const nuevosColaboradores = colaboradores.filter(
+      (colaborador) => colaborador.id !== id
+    );
+    actualizarColaboradores(nuevosColaboradores);
   };
 
   //Actualizar color de equipo
@@ -130,6 +134,11 @@ function App() {
     actualizarEquipos(equiposActualizados);
   };
 
+  //crear equipo
+  const crearEquipo = (nuevoEquipo) => {
+    console.log(nuevoEquipo);
+    actualizarEquipos([...equipos, { ...nuevoEquipo, id: uuid() }]);
+  };
   return (
     <div>
       <Header />
@@ -138,6 +147,7 @@ function App() {
         <Formulario
           equipos={equipos.map((equipo) => equipo.titulo)}
           registrarColaborador={registrarColaborador}
+          crearEquipo={crearEquipo}
         />
       )}
       <MiOrg cambiarMostrar={cambiarMostrar} />

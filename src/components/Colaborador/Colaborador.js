@@ -3,11 +3,14 @@ import { AiFillCloseCircle } from "react-icons/ai";
 // al importar el AiFillCloseCircle que es el icono de react
 //se puede llamar como una etiqueta de html para incorporarla
 const Colaborador = (props) => {
-  const { nombre, puesto, foto, equipo } = props.datos;
+  const { nombre, puesto, foto, equipo, id } = props.datos;
   const { colorPrimario, eliminarColaborador } = props;
   return (
     <div className="colaborador">
-      <AiFillCloseCircle className="eliminar" onClick={eliminarColaborador}>
+      <AiFillCloseCircle
+        className="eliminar"
+        onClick={() => eliminarColaborador(id)}
+      >
         D
       </AiFillCloseCircle>
       <div className="encabezado" style={{ backgroundColor: colorPrimario }}>
