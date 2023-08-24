@@ -13,7 +13,6 @@ const Equipo = (props) => {
   };
 
   const estiloTitulo = { borderColor: colorPrimario };
-  git;
 
   return (
     <>
