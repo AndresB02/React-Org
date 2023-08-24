@@ -4,6 +4,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 //se puede llamar como una etiqueta de html para incorporarla
 const Colaborador = (props) => {
   const { nombre, puesto, foto, equipo, id } = props.datos;
+  console.log(equipo);
   const { colorPrimario, eliminarColaborador } = props;
   return (
     <div className="colaborador">
