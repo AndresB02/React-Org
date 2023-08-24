@@ -7,13 +7,13 @@ const Footer = () => {
       style={{ backgroundImage: "url(/img/footer.png)" }}
     >
       <div className="redes">
-        <a href="https://github.com/AndresB02" target="_blank">
+        <a href="https://github.com/AndresB02">
           <img src="/img/github.png" alt="Facebook" />
         </a>
-        <a href="https://www.linkedin.com/in/abuitrago02/" target="_blank">
+        <a href="https://www.linkedin.com/in/abuitrago02/">
           <img src="/img/linkedin.png" alt="twitter" />
         </a>
-        <a href="mailto:a.buitrago0210@gmail.com" target="_blank">
+        <a href="mailto:a.buitrago0210@gmail.com">
           <img src="/img/email.png" alt="instagram" />
         </a>
       </div>

@@ -7,6 +7,7 @@ const MiOrg = (props) => {
   // y de esta manera  usarlo como funcion -> useState()
   // estructura del useState es = const [nombreVariable, funcionQueActualiza] = useState(valorInicial)
   console.log(props);
+  console.log(useState);
   //const [mostrar, actualizarMostrar] = useState();
   // const manejarClick = () => {
   //   console.log("mostrar/ocultar elemento", !mostrar);
